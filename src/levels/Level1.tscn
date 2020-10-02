@@ -1,0 +1,214 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://tilesets/Level1.tres" type="TileSet" id=1]
+[ext_resource path="res://images/UI/2020-10-02 Selected Move v1.png" type="Texture" id=2]
+[ext_resource path="res://src/characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/characters/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/characters/Minion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/Kenney Thick.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://src/characters/Follower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/music/Field_-_Adventurers_Road.ogg" type="AudioStream" id=8]
+[ext_resource path="res://src/environment/Background.gd" type="Script" id=9]
+[ext_resource path="res://images/backgrounds/backgroundEmpty.png" type="Texture" id=10]
+[ext_resource path="res://images/backgrounds/cloud2.png" type="Texture" id=11]
+[ext_resource path="res://images/backgrounds/cloud1.png" type="Texture" id=12]
+[ext_resource path="res://src/levels/Level.gd" type="Script" id=13]
+[ext_resource path="res://images/UI/2020-10-02 Selected Attack v1.png" type="Texture" id=14]
+
+[sub_resource type="TileSet" id=3]
+0/name = "2020-10-02 Selected Move v1.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 200 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "2020-10-02 Selected Attack v1.png 1"
+1/texture = ExtResource( 14 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 128, 200 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.191358, 0.901235 )
+colors = PoolColorArray( 1, 1, 1, 0.537255, 1, 1, 1, 0 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 13 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, 20 )
+transform = Transform2D( 1, 0, 0, 1, 0, 20 )
+script = ExtResource( 9 )
+
+[node name="Layer0" type="ParallaxLayer" parent="Background"]
+
+[node name="Sky" type="ColorRect" parent="Background/Layer0"]
+visible = false
+margin_top = -100.0
+margin_right = 960.0
+margin_bottom = 100.0
+color = Color( 0.0980392, 0.552941, 0.85098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sky2" type="Sprite" parent="Background/Layer0"]
+position = Vector2( 0, -188.923 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Ground" type="ColorRect" parent="Background/Layer0"]
+margin_left = 6.85593
+margin_top = 91.6693
+margin_right = 1030.86
+margin_bottom = 591.67
+color = Color( 0.356863, 0.247059, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer1" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="cloud1" type="Sprite" parent="Background/Layer1"]
+position = Vector2( 205.233, -93.9592 )
+rotation = -2.70039
+texture = ExtResource( 12 )
+
+[node name="cloud2" type="Sprite" parent="Background/Layer1"]
+position = Vector2( 739.388, -117.652 )
+rotation = 2.83028
+texture = ExtResource( 11 )
+
+[node name="Water" type="TileMap" parent="Background/Layer1"]
+visible = false
+scale = Vector2( 0.5, 0.7 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 88 )
+format = 1
+tile_data = PoolIntArray( -131072, 6, 0, -131071, 6, 0, -131070, 6, 0, -131069, 6, 0, -131068, 6, 0, -131067, 6, 0, -131066, 6, 0, -131065, 6, 0, -131064, 6, 0, -131063, 6, 0, -131062, 6, 0, -131061, 6, 0, -131060, 6, 0, -131059, 6, 0, -131058, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, -65529, 6, 0, -65528, 6, 0, -65527, 6, 0, -65526, 6, 0, -65525, 6, 0, -65524, 6, 0, -65523, 6, 0, -65522, 6, 0, 0, 6, 0, 1, 6, 0, 2, 6, 0, 3, 6, 0, 4, 6, 0, 5, 6, 0, 6, 6, 0, 7, 6, 0, 8, 6, 0, 9, 6, 0, 10, 6, 0, 11, 6, 0, 12, 6, 0, 13, 6, 0, 14, 6, 0 )
+
+[node name="Layer2" type="ParallaxLayer" parent="Background"]
+
+[node name="Ground" type="TileMap" parent="Background/Layer2"]
+scale = Vector2( 0.5, 0.7 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 88 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 1, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 5, 0, 14, 1, 0, 65536, 2, 0, 65537, 3, 0, 65538, 7, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 6, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 7, 0, 65549, 5, 0, 65550, 1, 0, 131072, 2, 0, 131073, 3, 0, 131074, 7, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 6, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 7, 0, 131085, 5, 0, 131086, 1, 0, 196608, 2, 0, 196609, 3, 0, 196610, 7, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 6, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 7, 0, 196621, 5, 0, 196622, 1, 0, 262144, 2, 0, 262145, 3, 0, 262146, 7, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 6, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 7, 0, 262157, 5, 0, 262158, 1, 0, 327680, 2, 0, 327681, 3, 0, 327682, 7, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 6, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 7, 0, 327693, 5, 0, 327694, 1, 0, 393216, 2, 0, 393217, 3, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 5, 0, 393230, 1, 0, 458752, 2, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 2, 0, 458766, 1, 0 )
+
+[node name="Selectors" type="TileMap" parent="Background/Layer2"]
+position = Vector2( 0, -25 )
+scale = Vector2( 0.5, 0.7 )
+tile_set = SubResource( 3 )
+cell_size = Vector2( 128, 88 )
+format = 1
+tile_data = PoolIntArray( 131074, 1, 0, 196610, 0, 0, 196611, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 327682, 0, 0, 327683, 1, 0, 393218, 1, 0 )
+
+[node name="Layer3" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2( 640, 0 )
+
+[node name="Water" type="TileMap" parent="Background/Layer3"]
+position = Vector2( 0, 20 )
+scale = Vector2( 0.5, 0.7 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 88 )
+format = 1
+tile_data = PoolIntArray( 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 8, 0, 458756, 8, 0, 458757, 8, 0, 458758, 8, 0, 458759, 8, 0, 458760, 8, 0, 458761, 8, 0, 458762, 8, 0, 458763, 8, 0, 458764, 8, 0, 458765, 8, 0, 458766, 8, 0, 458767, 8, 0, 458768, 8, 0, 458769, 8, 0, 458770, 8, 0, 458771, 8, 0, 458772, 8, 0, 458773, 8, 0, 458774, 8, 0 )
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Allies" type="Node2D" parent="Characters"]
+
+[node name="Player" parent="Characters/Allies" instance=ExtResource( 3 )]
+position = Vector2( 156.362, 244.3 )
+
+[node name="Follower1" parent="Characters/Allies" instance=ExtResource( 7 )]
+position = Vector2( 285.721, 197.737 )
+
+[node name="Follower2" parent="Characters/Allies" instance=ExtResource( 7 )]
+position = Vector2( 414.523, 321.097 )
+
+[node name="Follower3" parent="Characters/Allies" instance=ExtResource( 7 )]
+position = Vector2( 227.67, 378.241 )
+
+[node name="Enemies" type="Node2D" parent="Characters"]
+
+[node name="Enemy" parent="Characters/Enemies" instance=ExtResource( 4 )]
+position = Vector2( 798.85, 254.568 )
+
+[node name="Minion1" parent="Characters/Enemies" instance=ExtResource( 5 )]
+position = Vector2( 614.194, 251.247 )
+
+[node name="Minion2" parent="Characters/Enemies" instance=ExtResource( 5 )]
+position = Vector2( 675.967, 127.7 )
+
+[node name="Minion3" parent="Characters/Enemies" instance=ExtResource( 5 )]
+position = Vector2( 729.77, 374.794 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Time" type="Label" parent="UI"]
+margin_top = 8.06989
+margin_right = 960.0
+margin_bottom = 80.0699
+custom_fonts/font = SubResource( 2 )
+text = "30"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="Dust1" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 0, 270 )
+amount = 20
+lifetime = 15.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 270 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+scale_amount = 10.0
+color_ramp = SubResource( 4 )
+
+[node name="Dust2" type="CPUParticles2D" parent="Particles"]
+position = Vector2( 960, 270 )
+amount = 20
+lifetime = 15.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 270 )
+direction = Vector2( -1, 0 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+scale_amount = 10.0
+color_ramp = SubResource( 4 )
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Theme" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 8 )
+autoplay = true

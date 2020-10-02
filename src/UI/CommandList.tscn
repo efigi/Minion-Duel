@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/Kenney Thick.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 1 )
+
+[node name="CommandList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 82.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Selector" type="RichTextLabel" parent="."]
+margin_left = -19.4363
+margin_top = 19.2234
+margin_right = 10.5637
+margin_bottom = 34.2234
+rect_min_size = Vector2( 30, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "X"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Commands" type="VBoxContainer" parent="."]
+margin_right = 150.0
+margin_bottom = 66.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Recent" type="RichTextLabel" parent="Commands"]
+margin_right = 150.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 100, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "Recent"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attack" type="RichTextLabel" parent="Commands"]
+margin_top = 19.0
+margin_right = 150.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 100, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "Attack"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Summon" type="RichTextLabel" parent="Commands"]
+margin_top = 38.0
+margin_right = 150.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 100, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "Summon"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spells" type="RichTextLabel" parent="Commands"]
+margin_top = 57.0
+margin_right = 150.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 100, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "Spells"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="RichTextLabel" parent="Commands"]
+margin_top = 76.0
+margin_right = 150.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 10 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 2 )
+text = "Items"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
