@@ -10,15 +10,18 @@ var inputs = {
 	
 func get_raw_input() -> Dictionary:
 	inputs = {
-		is_moving = Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up"),
+		is_selected = owner.is_selected,#Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_up"),
 		input_direction = get_input_direction(),
 		is_shooting = Input.is_action_pressed("shoot"),
 		
 	}
 	return inputs
 	
-func interpret_inputs(_input):
-	return "idle"
+func interpret_inputs(input):
+	if input.is_selected:
+		return "selected"
+	else:
+		return state_name
 
 func enter():
 	pass

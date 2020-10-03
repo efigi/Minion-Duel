@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://images/characters/aliens/alienGreen_stand.png" type="Texture" id=1]
 [ext_resource path="res://images/characters/aliens/alienGreen_walk1.png" type="Texture" id=2]
 [ext_resource path="res://src/characters/Character.gd" type="Script" id=3]
 [ext_resource path="res://images/characters/aliens/alienGreen_walk2.png" type="Texture" id=4]
 [ext_resource path="res://src/states/Idle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/Kenney Thick.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://images/UI/yellow_circle.png" type="Texture" id=7]
+[ext_resource path="res://images/UI/red_circle.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.3585, 44.9154 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,10 +25,18 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
+size = 12
+font_data = ExtResource( 6 )
 
-[node name="Character" type="Node2D"]
+[node name="Character" type="KinematicBody2D" groups=[
+"characters",
+]]
+input_pickable = true
 script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -41,11 +55,53 @@ playing = true
 
 [node name="UI" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="UI"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 2 )
-text = "10"
+[node name="YellowCircle" type="Sprite" parent="UI"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+position = Vector2( -43.0364, 24.0863 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Attack" type="Label" parent="UI/YellowCircle"]
+margin_left = 3.12066
+margin_top = 12.0571
+margin_right = 35.1207
+margin_bottom = 30.0571
+custom_fonts/font = SubResource( 4 )
+text = "5"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RedCircle" type="Sprite" parent="UI"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+show_behind_parent = true
+position = Vector2( 23.5208, 42.1287 )
+texture = ExtResource( 8 )
+
+[node name="Health" type="Label" parent="UI/RedCircle"]
+margin_left = -12.459
+margin_top = -5.9852
+margin_right = 19.541
+margin_bottom = 12.0148
+custom_fonts/font = SubResource( 4 )
+text = "30"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State" type="Label" parent="UI"]
+margin_left = -148.342
+margin_top = -62.7916
+margin_right = 151.658
+margin_bottom = -44.7916
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "Idle"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="input_event" from="." to="." method="_on_Character_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_Character_mouse_entered"]
