@@ -21,7 +21,7 @@ func interpret_inputs(input):
 	if input.is_selected:
 		return "selected"
 	else:
-		return state_name
+		return "idle"
 
 func enter():
 	pass

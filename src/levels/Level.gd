@@ -1,9 +1,10 @@
 class_name Level
-extends Node2D
+extends Control
 
 var menu_path = ""
 
 onready var selector = $Background/Layer2/Selector
+onready var grid = $Background/Layer2/Grid
 
 func _ready():
 	pass
