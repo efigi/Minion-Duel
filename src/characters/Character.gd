@@ -2,12 +2,13 @@ class_name Character
 extends KinematicBody2D
 
 
-export (String, "left", "right") var team = "left"
+var team = "left"
 
 var map_position := Vector2.ZERO
 var world_position := Vector2.ZERO
 var is_selected := false
 
+onready var pivot = $Pivot
 onready var sprite = $Pivot/Sprite
 onready var state_label = $UI/State
 onready var select_box = $UI/SelectBox
@@ -23,11 +24,12 @@ func _ready():
 			possible_states[child.state_name] = child #grabs first state, which is usually idle
 			if _state == null:
 				_state = child
-				state_label.text = _state	.state_name		
-#				change_state(child.state_name)
+				state_label.text = _state	.state_name
 	print(_state.state_name)
+	print("ELLo")
 	if team == "right":
-		sprite.flip_h = true
+		print("IM RIGHT")
+		pivot.scale.x = abs(pivot.scale.x) * - 1
 	print(team)
 	tween.interpolate_property(self, "position",position + (Vector2.UP * 300), position, 0.7, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()

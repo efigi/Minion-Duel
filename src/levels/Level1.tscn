@@ -16,14 +16,14 @@
 [ext_resource path="res://images/UI/2020-10-02 Selected Attack v1.png" type="Texture" id=14]
 [ext_resource path="res://images/particles/leaf v1.png" type="Texture" id=15]
 [ext_resource path="res://images/UI/alienBlue_badge1.png" type="Texture" id=16]
-[ext_resource path="res://images/UI/HP/barGreen_horizontalLeft.png" type="Texture" id=17]
+[ext_resource path="res://images/UI/HP/squareYellow.png" type="Texture" id=17]
 [ext_resource path="res://images/UI/HP/barBlue_horizontalBlue.png" type="Texture" id=18]
-[ext_resource path="res://images/UI/HP/barGreen_horizontalRight.png" type="Texture" id=19]
+[ext_resource path="res://images/UI/HP/square_shadow.png" type="Texture" id=19]
 [ext_resource path="res://images/UI/HP/barBlue_horizontalLeft.png" type="Texture" id=20]
-[ext_resource path="res://images/UI/HP/barGreen_horizontalMid.png" type="Texture" id=21]
+[ext_resource path="res://src/characters/Enemy.tscn" type="PackedScene" id=21]
 [ext_resource path="res://images/UI/HP/barBlue_horizontalRight.png" type="Texture" id=22]
-[ext_resource path="res://images/UI/HP/full green hp bar v1.png" type="Texture" id=23]
-[ext_resource path="res://images/UI/HP/full back hp bar v1.png" type="Texture" id=24]
+[ext_resource path="res://images/UI/HP/full back hp bar v2.png" type="Texture" id=23]
+[ext_resource path="res://images/UI/HP/full green hp bar v2.png" type="Texture" id=24]
 
 [sub_resource type="TileSet" id=1]
 0/name = "2020-10-02 Selected Move v1.png 0"
@@ -161,6 +161,9 @@ position = Vector2( 158.774, 252.734 )
 
 [node name="Enemies" type="Node2D" parent="Characters"]
 
+[node name="Enemy" parent="Characters/Enemies" instance=ExtResource( 21 )]
+position = Vector2( 805.007, 255.06 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="UI"]
@@ -185,8 +188,6 @@ __meta__ = {
 }
 
 [node name="Green" type="Control" parent="UI/Control"]
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="GreenBadge" type="Sprite" parent="UI/Control/Green"]
 position = Vector2( 49.2657, 52.5157 )
@@ -204,77 +205,93 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GreenHP" type="GridContainer" parent="UI/Control/Green"]
+[node name="GreenHealth" type="TextureProgress" parent="UI/Control/Green"]
+margin_left = 89.5061
+margin_top = 66.4176
+margin_right = 329.506
+margin_bottom = 106.418
+rect_scale = Vector2( 1, 0.5 )
+max_value = 30.0
+value = 28.0
+texture_under = ExtResource( 23 )
+texture_progress = ExtResource( 24 )
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_right = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenMana" type="GridContainer" parent="UI/Control/Green"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 55.1194
-margin_top = 65.8792
-margin_right = 217.119
-margin_bottom = 83.8792
-rect_scale = Vector2( 1.4, 1 )
-custom_constants/hseparation = 0
+margin_left = 93.2603
+margin_top = 90.9947
+margin_right = 292.26
+margin_bottom = 116.995
+custom_constants/hseparation = 1
 columns = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_right = 9.0
-margin_bottom = 18.0
+[node name="squareYellow" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_right = 19.0
+margin_bottom = 26.0
 texture = ExtResource( 17 )
 
-[node name="2" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 9.0
-margin_right = 27.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="squareYellow2" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 20.0
+margin_right = 39.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="3" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 27.0
-margin_right = 45.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="squareYellow3" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 40.0
+margin_right = 59.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="4" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 45.0
-margin_right = 63.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="squareYellow4" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 60.0
+margin_right = 79.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="5" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 63.0
-margin_right = 81.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
-
-[node name="6" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 81.0
+[node name="squareYellow5" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 80.0
 margin_right = 99.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="7" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 99.0
-margin_right = 117.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="square_shadow" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 100.0
+margin_right = 119.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="8" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 117.0
-margin_right = 135.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="square_shadow2" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 120.0
+margin_right = 139.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="9" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 135.0
-margin_right = 153.0
-margin_bottom = 18.0
-texture = ExtResource( 21 )
+[node name="square_shadow3" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 140.0
+margin_right = 159.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="10" type="TextureRect" parent="UI/Control/Green/GreenHP"]
-margin_left = 153.0
-margin_right = 162.0
-margin_bottom = 18.0
+[node name="square_shadow4" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 160.0
+margin_right = 179.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
+
+[node name="square_shadow5" type="TextureRect" parent="UI/Control/Green/GreenMana"]
+margin_left = 180.0
+margin_right = 199.0
+margin_bottom = 26.0
 texture = ExtResource( 19 )
 
 [node name="Blue" type="Control" parent="UI/Control"]
@@ -373,22 +390,6 @@ margin_left = 153.0
 margin_right = 162.0
 margin_bottom = 18.0
 texture = ExtResource( 22 )
-
-[node name="GreenHealth" type="TextureProgress" parent="UI/Control/Blue"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.1, 0.1 )
-value = 75.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 23 )
-nine_patch_stretch = true
-stretch_margin_left = 9
-stretch_margin_top = 9
-stretch_margin_right = 9
-stretch_margin_bottom = 9
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Particles" type="Node2D" parent="."]
 

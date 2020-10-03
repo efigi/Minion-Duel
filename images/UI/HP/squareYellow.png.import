@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/full back hp bar v1.png-e46520e2f3a4d5b7bd56ead5b47cd9bb.stex"
+path="res://.import/squareYellow.png-c1e6615d51cb13e6184c0df1ada6913e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/UI/HP/full back hp bar v1.png"
-dest_files=[ "res://.import/full back hp bar v1.png-e46520e2f3a4d5b7bd56ead5b47cd9bb.stex" ]
+source_file="res://images/UI/HP/squareYellow.png"
+dest_files=[ "res://.import/squareYellow.png-c1e6615d51cb13e6184c0df1ada6913e.stex" ]
 
 [params]
 
