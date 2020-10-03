@@ -21,6 +21,7 @@ animations = [ {
 
 [node name="Enemy" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
+team = "right"
 
 [node name="Sprite" parent="Pivot" index="0"]
 frames = SubResource( 1 )

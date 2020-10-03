@@ -6,13 +6,15 @@ extends TileMap
 # var a = 2
 # var b = "text"
 
-
+onready var anim = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-	visible = false
+	change_visible(false)
+	anim.playback_speed = 1.5
 
-
-func change_visible():
-	visible = not visible
-	print("CHANGED!")
+func change_visible(val := true):
+	visible = val
+	if val:
+		anim.play("idle")
+	else:
+		anim.stop()

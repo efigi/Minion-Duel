@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alienGreen_badge2.png-fa7066313dc3b13ed1e3ed14aebac2d1.stex"
+path="res://.import/alienBlue.png-6e245cf111a6526361a33f3627344b2e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alienGreen_badge2.png"
-dest_files=[ "res://.import/alienGreen_badge2.png-fa7066313dc3b13ed1e3ed14aebac2d1.stex" ]
+source_file="res://images/characters/aliens/alienBlue.png"
+dest_files=[ "res://.import/alienBlue.png-6e245cf111a6526361a33f3627344b2e.stex" ]
 
 [params]
 

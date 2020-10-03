@@ -6,9 +6,9 @@ func _ready():
 
 func enter():
 	owner.play_audio(state_name)
-	get_tree().call_group("selectors","change_visible")
+	get_tree().call_group("selectors","change_visible", true)
 	owner.select_box.visible = true
 
 func exit():
-	get_tree().call_group("selectors","change_visible")
+	get_tree().call_group("selectors","change_visible", false)
 	owner.select_box.visible = false

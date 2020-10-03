@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alienGreen_badge2.png-fa7066313dc3b13ed1e3ed14aebac2d1.stex"
+path="res://.import/alienBeige_badge1.png-f25b3b173c766915d3b781f9fd68551f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alienGreen_badge2.png"
-dest_files=[ "res://.import/alienGreen_badge2.png-fa7066313dc3b13ed1e3ed14aebac2d1.stex" ]
+source_file="res://images/UI/alien placeholders/alienBeige_badge1.png"
+dest_files=[ "res://.import/alienBeige_badge1.png-f25b3b173c766915d3b781f9fd68551f.stex" ]
 
 [params]
 

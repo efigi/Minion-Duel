@@ -1,8 +1,7 @@
 class_name Character
 extends KinematicBody2D
 
-
-var team = "left"
+export (String, "left", "right") var team = "left"
 
 var map_position := Vector2.ZERO
 var world_position := Vector2.ZERO
@@ -25,12 +24,9 @@ func _ready():
 			if _state == null:
 				_state = child
 				state_label.text = _state	.state_name
-	print(_state.state_name)
-	print("ELLo")
 	if team == "right":
-		print("IM RIGHT")
-		pivot.scale.x = abs(pivot.scale.x) * - 1
-	print(team)
+		for child in pivot.get_children():
+			child.scale.x *= -1
 	tween.interpolate_property(self, "position",position + (Vector2.UP * 300), position, 0.7, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()
 	
@@ -66,7 +62,15 @@ func play_audio(audio : String):
 	match audio:
 		"selected":
 			$Audio/Selected.play()
+		"land":
+			$Audio/Move.play()
 #func _input_event(_viewport, event, _shape_idx):
 #	if event is InputEventMouseButton:
 #		if event.button_index == BUTTON_LEFT and event.pressed:
 #			get_tree().call_group("selectors","change_visible")
+
+
+func _on_Tween_tween_completed(_object, key):
+	if key == ":position":
+		play_audio("land")
+		print(global_position)

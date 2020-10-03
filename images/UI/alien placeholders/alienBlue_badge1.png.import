@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2020-10-02 Selected Move v1.png-052e29805527ed898ff6b5c8e32c33a0.stex"
+path="res://.import/alienBlue_badge1.png-86fafea088d947c4cd2d5f6e7b73765c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/UI/2020-10-02 Selected Move v1.png"
-dest_files=[ "res://.import/2020-10-02 Selected Move v1.png-052e29805527ed898ff6b5c8e32c33a0.stex" ]
+source_file="res://images/UI/alien placeholders/alienBlue_badge1.png"
+dest_files=[ "res://.import/alienBlue_badge1.png-86fafea088d947c4cd2d5f6e7b73765c.stex" ]
 
 [params]
 

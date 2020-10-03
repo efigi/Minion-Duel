@@ -1,5 +1,5 @@
 class_name Level
-extends Control
+extends Node2D
 
 var menu_path = ""
 

@@ -1,27 +1,27 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://tilesets/Level1.tres" type="TileSet" id=1]
-[ext_resource path="res://images/UI/2020-10-02 Selected Move v1.png" type="Texture" id=2]
+[ext_resource path="res://images/UI/tile selectors/2020-10-02 Selected Move v1.png" type="Texture" id=2]
 [ext_resource path="res://src/UI/Selectors.gd" type="Script" id=3]
-[ext_resource path="res://src/characters/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/characters/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/Grid.gd" type="Script" id=5]
 [ext_resource path="res://fonts/Kenney Thick.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://images/UI/alienGreen_badge1.png" type="Texture" id=7]
+[ext_resource path="res://images/characters/aliens/alienGreen.png" type="Texture" id=7]
 [ext_resource path="res://sounds/music/Field_-_Adventurers_Road.ogg" type="AudioStream" id=8]
 [ext_resource path="res://src/environment/Background.gd" type="Script" id=9]
 [ext_resource path="res://images/backgrounds/backgroundEmpty.png" type="Texture" id=10]
 [ext_resource path="res://images/backgrounds/cloud2.png" type="Texture" id=11]
 [ext_resource path="res://images/backgrounds/cloud1.png" type="Texture" id=12]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=13]
-[ext_resource path="res://images/UI/2020-10-02 Selected Attack v1.png" type="Texture" id=14]
+[ext_resource path="res://images/UI/tile selectors/2020-10-02 Selected Attack v1.png" type="Texture" id=14]
 [ext_resource path="res://images/particles/leaf v1.png" type="Texture" id=15]
-[ext_resource path="res://images/UI/alienBlue_badge1.png" type="Texture" id=16]
+[ext_resource path="res://images/characters/aliens/alienBlue.png" type="Texture" id=16]
 [ext_resource path="res://images/UI/HP/squareYellow.png" type="Texture" id=17]
-[ext_resource path="res://images/UI/HP/barBlue_horizontalBlue.png" type="Texture" id=18]
+[ext_resource path="res://images/UI/alien placeholders/alienGreen_badge1.png" type="Texture" id=18]
 [ext_resource path="res://images/UI/HP/square_shadow.png" type="Texture" id=19]
-[ext_resource path="res://images/UI/HP/barBlue_horizontalLeft.png" type="Texture" id=20]
+[ext_resource path="res://images/UI/alien placeholders/alienBlue_badge1.png" type="Texture" id=20]
 [ext_resource path="res://src/characters/Enemy.tscn" type="PackedScene" id=21]
-[ext_resource path="res://images/UI/HP/barBlue_horizontalRight.png" type="Texture" id=22]
+[ext_resource path="res://src/environment/PlayerSpots.gd" type="Script" id=22]
 [ext_resource path="res://images/UI/HP/full back hp bar v2.png" type="Texture" id=23]
 [ext_resource path="res://images/UI/HP/full green hp bar v2.png" type="Texture" id=24]
 
@@ -55,26 +55,88 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 4.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.647059 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="TileSet" id=3]
+1/name = "alienBlue_badge1.png 1"
+1/texture = ExtResource( 20 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 47, 47 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "alienGreen_badge1.png 2"
+2/texture = ExtResource( 18 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 47, 47 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="Animation" id=4]
+length = 8.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 20 ), Vector2( 0, 10 ), Vector2( 0, 20 ), Vector2( 0, 30 ), Vector2( 0, 20 ) ]
+}
+
+[sub_resource type="DynamicFont" id=5]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 24
-outline_size = 4
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0.112583, 0.47351, 0.901235 )
 colors = PoolColorArray( 0.180392, 0.8, 0.443137, 0.588235, 0.180392, 0.8, 0.443137, 0.392157, 1, 1, 1, 0 )
 
-[node name="Level1" type="Control"]
+[node name="Level1" type="Node2D"]
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" type="ParallaxBackground" parent="."]
 offset = Vector2( 0, 20 )
@@ -127,7 +189,7 @@ scale = Vector2( 0.5, 0.7 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 88 )
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 1, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 5, 0, 14, 1, 0, 65536, 2, 0, 65537, 3, 0, 65538, 7, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 6, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 7, 0, 65549, 5, 0, 65550, 1, 0, 131072, 2, 0, 131073, 3, 0, 131074, 7, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 6, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 7, 0, 131085, 5, 0, 131086, 1, 0, 196608, 2, 0, 196609, 3, 0, 196610, 7, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 6, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 7, 0, 196621, 5, 0, 196622, 1, 0, 262144, 2, 0, 262145, 3, 0, 262146, 7, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 6, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 7, 0, 262157, 5, 0, 262158, 1, 0, 327680, 2, 0, 327681, 3, 0, 327682, 7, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 6, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 7, 0, 327693, 5, 0, 327694, 1, 0, 393216, 2, 0, 393217, 3, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 5, 0, 393230, 1, 0, 458752, 2, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 2, 0, 458766, 1, 0 )
+tile_data = PoolIntArray( 0, 2, 0, 1, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 5, 0, 14, 1, 0, 65536, 2, 0, 65537, 3, 0, 65538, 6, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 7, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 6, 0, 65549, 5, 0, 65550, 1, 0, 131072, 2, 0, 131073, 3, 0, 131074, 6, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 7, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 6, 0, 131085, 5, 0, 131086, 1, 0, 196608, 2, 0, 196609, 3, 0, 196610, 6, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 7, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 6, 0, 196621, 5, 0, 196622, 1, 0, 262144, 2, 0, 262145, 3, 0, 262146, 6, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 7, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 6, 0, 262157, 5, 0, 262158, 1, 0, 327680, 2, 0, 327681, 3, 0, 327682, 6, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 7, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 6, 0, 327693, 5, 0, 327694, 1, 0, 393216, 2, 0, 393217, 3, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 5, 0, 393230, 1, 0, 458752, 2, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 2, 0, 458766, 1, 0 )
 script = ExtResource( 5 )
 
 [node name="Selector" type="TileMap" parent="Background/Layer2" groups=[
@@ -141,6 +203,18 @@ format = 1
 tile_data = PoolIntArray( 131074, 1, 0, 196610, 0, 0, 196611, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 327682, 0, 0, 327683, 1, 0, 393218, 1, 0 )
 script = ExtResource( 3 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Layer2/Selector"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="PlayerSpots" type="TileMap" parent="Background/Layer2"]
+scale = Vector2( 0.5, 0.7 )
+tile_set = SubResource( 3 )
+cell_size = Vector2( 128, 88 )
+format = 1
+tile_data = PoolIntArray( 262146, 2, 0, 262147, 1, 0 )
+script = ExtResource( 22 )
+
 [node name="Layer3" type="ParallaxLayer" parent="Background"]
 motion_mirroring = Vector2( 640, 0 )
 
@@ -152,17 +226,25 @@ cell_size = Vector2( 128, 88 )
 format = 1
 tile_data = PoolIntArray( 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 8, 0, 458756, 8, 0, 458757, 8, 0, 458758, 8, 0, 458759, 8, 0, 458760, 8, 0, 458761, 8, 0, 458762, 8, 0, 458763, 8, 0, 458764, 8, 0, 458765, 8, 0, 458766, 8, 0, 458767, 8, 0, 458768, 8, 0, 458769, 8, 0, 458770, 8, 0, 458771, 8, 0, 458772, 8, 0, 458773, 8, 0, 458774, 8, 0 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Layer3/Water"]
+autoplay = "idle"
+anims/idle = SubResource( 4 )
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Allies" type="Node2D" parent="Characters"]
 
-[node name="Character" parent="Characters/Allies" instance=ExtResource( 4 )]
-position = Vector2( 158.774, 252.734 )
+[node name="Player" parent="Characters/Allies" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 155.438, 258.266 )
+collision_mask = 1
 
 [node name="Enemies" type="Node2D" parent="Characters"]
 
 [node name="Enemy" parent="Characters/Enemies" instance=ExtResource( 21 )]
-position = Vector2( 805.007, 255.06 )
+visible = false
+position = Vector2( 803.695, 256.833 )
+collision_mask = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -178,10 +260,10 @@ margin_left = -12.6811
 margin_top = 491.183
 margin_right = 947.319
 margin_bottom = 563.183
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_constants/line_spacing = 7
-text = "Click R to Restart
-Click M for Menu"
+text = "R to Restart
+M for Menu"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,8 +272,7 @@ __meta__ = {
 [node name="Green" type="Control" parent="UI/Control"]
 
 [node name="GreenBadge" type="Sprite" parent="UI/Control/Green"]
-position = Vector2( 49.2657, 52.5157 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 50, 52 )
 texture = ExtResource( 7 )
 
 [node name="GreenName" type="Label" parent="UI/Control/Green"]
@@ -199,7 +280,7 @@ margin_left = 93.7559
 margin_top = 32.7269
 margin_right = 1053.76
 margin_bottom = 104.727
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Green"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -301,95 +382,112 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BlueBadge" type="Sprite" parent="UI/Control/Blue"]
+position = Vector2( 914.106, 51.5706 )
+texture = ExtResource( 16 )
+
 [node name="BlueName" type="Label" parent="UI/Control/Blue"]
 margin_left = -91.146
 margin_top = 30.545
 margin_right = 868.854
 margin_bottom = 102.545
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Blue"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlueBadge" type="Sprite" parent="UI/Control/Blue"]
-position = Vector2( 914.106, 51.5706 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 16 )
+[node name="BlueHealth" type="TextureProgress" parent="UI/Control/Blue"]
+margin_left = 631.212
+margin_top = 66.4176
+margin_right = 871.212
+margin_bottom = 106.418
+rect_scale = Vector2( 1, 0.5 )
+max_value = 30.0
+value = 28.0
+texture_under = ExtResource( 23 )
+texture_progress = ExtResource( 24 )
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 12
+stretch_margin_right = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BlueHP" type="GridContainer" parent="UI/Control/Blue"]
+[node name="BlueMana" type="GridContainer" parent="UI/Control/Blue"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 596.24
-margin_top = 63.6973
-margin_right = 758.24
-margin_bottom = 81.6973
-rect_scale = Vector2( 1.45, 1 )
-custom_constants/hseparation = 0
+margin_left = 828.976
+margin_top = 90.9947
+margin_right = 1027.98
+margin_bottom = 116.995
+rect_scale = Vector2( -1, 1 )
+custom_constants/hseparation = 1
 columns = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_right = 9.0
-margin_bottom = 18.0
-texture = ExtResource( 20 )
+[node name="squareYellow" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_right = 19.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="2" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 9.0
-margin_right = 27.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="squareYellow2" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 20.0
+margin_right = 39.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="3" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 27.0
-margin_right = 45.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="squareYellow3" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 40.0
+margin_right = 59.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="4" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 45.0
-margin_right = 63.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="squareYellow4" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 60.0
+margin_right = 79.0
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="5" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 63.0
-margin_right = 81.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
-
-[node name="6" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 81.0
+[node name="squareYellow5" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 80.0
 margin_right = 99.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+margin_bottom = 26.0
+texture = ExtResource( 17 )
 
-[node name="7" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 99.0
-margin_right = 117.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="square_shadow" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 100.0
+margin_right = 119.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="8" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 117.0
-margin_right = 135.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="square_shadow2" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 120.0
+margin_right = 139.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="9" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 135.0
-margin_right = 153.0
-margin_bottom = 18.0
-texture = ExtResource( 18 )
+[node name="square_shadow3" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 140.0
+margin_right = 159.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
-[node name="10" type="TextureRect" parent="UI/Control/Blue/BlueHP"]
-margin_left = 153.0
-margin_right = 162.0
-margin_bottom = 18.0
-texture = ExtResource( 22 )
+[node name="square_shadow4" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 160.0
+margin_right = 179.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
+
+[node name="square_shadow5" type="TextureRect" parent="UI/Control/Blue/BlueMana"]
+margin_left = 180.0
+margin_right = 199.0
+margin_bottom = 26.0
+texture = ExtResource( 19 )
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -409,7 +507,7 @@ damping = 0.1
 angle = 30.0
 angle_random = 0.1
 scale_amount = 0.07
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 7 )
 
 [node name="DustRight" type="CPUParticles2D" parent="Particles"]
 position = Vector2( 960, 270 )
@@ -428,7 +526,7 @@ damping = 0.1
 angle = 30.0
 angle_random = 0.1
 scale_amount = 0.07
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 7 )
 
 [node name="Audio" type="Node2D" parent="."]
 

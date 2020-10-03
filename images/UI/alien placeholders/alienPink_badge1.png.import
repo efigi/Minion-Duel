@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2020-10-02 Selected Attack v1.png-7248a8d6f14d7cf6db664bcb09a2234b.stex"
+path="res://.import/alienPink_badge1.png-a52b70a320281c71eb7be588df5f3ee7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/UI/2020-10-02 Selected Attack v1.png"
-dest_files=[ "res://.import/2020-10-02 Selected Attack v1.png-7248a8d6f14d7cf6db664bcb09a2234b.stex" ]
+source_file="res://images/UI/alien placeholders/alienPink_badge1.png"
+dest_files=[ "res://.import/alienPink_badge1.png-a52b70a320281c71eb7be588df5f3ee7.stex" ]
 
 [params]
 
