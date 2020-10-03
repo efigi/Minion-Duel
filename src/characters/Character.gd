@@ -17,7 +17,11 @@ var possible_states : Dictionary = {}
 onready var states_holder = $States
 onready var tween =$Addons/Tween
 
+func setup(mp):
+	map_position = mp
+	
 func _ready():
+	position += (Vector2.UP * 400)
 	if states_holder != null:
 		for child in states_holder.get_children():
 			possible_states[child.state_name] = child #grabs first state, which is usually idle
@@ -27,7 +31,7 @@ func _ready():
 	if team == "right":
 		for child in pivot.get_children():
 			child.scale.x *= -1
-	tween.interpolate_property(self, "position",position + (Vector2.UP * 300), position, 0.7, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	tween.interpolate_property(self, "position",position, position + (Vector2.DOWN * 400), 0.7, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	tween.start()
 	
 func _physics_process(_delta):
@@ -73,4 +77,4 @@ func play_audio(audio : String):
 func _on_Tween_tween_completed(_object, key):
 	if key == ":position":
 		play_audio("land")
-		print(global_position)
+		print("team ", team, " at ", global_position)
