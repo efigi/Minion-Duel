@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://tilesets/Level1.tres" type="TileSet" id=1]
 [ext_resource path="res://images/UI/tile selectors/2020-10-02 Selected Move v1.png" type="Texture" id=2]
 [ext_resource path="res://src/UI/Selectors.gd" type="Script" id=3]
+[ext_resource path="res://src/environment/Clickable.gd" type="Script" id=4]
 [ext_resource path="res://src/environment/Grid.gd" type="Script" id=5]
 [ext_resource path="res://fonts/Kenney Thick.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://images/characters/aliens/alienGreen.png" type="Texture" id=7]
@@ -68,7 +69,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.647059 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 8.0
 loop = true
 step = 1.0
@@ -85,18 +86,18 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 20 ), Vector2( 0, 10 ), Vector2( 0, 20 ), Vector2( 0, 30 ), Vector2( 0, 20 ) ]
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 24
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0.112583, 0.47351, 0.901235 )
 colors = PoolColorArray( 0.180392, 0.8, 0.443137, 0.588235, 0.180392, 0.8, 0.443137, 0.392157, 1, 1, 1, 0 )
 
@@ -157,7 +158,10 @@ format = 1
 tile_data = PoolIntArray( 0, 2, 0, 1, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 5, 0, 14, 1, 0, 65536, 2, 0, 65537, 3, 0, 65538, 6, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 7, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 6, 0, 65549, 5, 0, 65550, 1, 0, 131072, 2, 0, 131073, 3, 0, 131074, 6, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 7, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 6, 0, 131085, 5, 0, 131086, 1, 0, 196608, 2, 0, 196609, 3, 0, 196610, 6, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 7, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 6, 0, 196621, 5, 0, 196622, 1, 0, 262144, 2, 0, 262145, 3, 0, 262146, 6, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 7, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 6, 0, 262157, 5, 0, 262158, 1, 0, 327680, 2, 0, 327681, 3, 0, 327682, 6, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 7, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 6, 0, 327693, 5, 0, 327694, 1, 0, 393216, 2, 0, 393217, 3, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 5, 0, 393230, 1, 0, 458752, 2, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 2, 0, 458766, 1, 0 )
 script = ExtResource( 5 )
 
-[node name="Selector" type="TileMap" parent="Background/Layer2" groups=[
+[node name="Clickable" type="Node2D" parent="Background/Layer2"]
+script = ExtResource( 4 )
+
+[node name="Selector" type="TileMap" parent="Background/Layer2/Clickable" groups=[
 "selectors",
 ]]
 position = Vector2( 0, -25 )
@@ -168,7 +172,7 @@ format = 1
 tile_data = PoolIntArray( 131074, 1, 0, 196610, 0, 0, 196611, 1, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 0, 327682, 0, 0, 327683, 1, 0, 393218, 1, 0 )
 script = ExtResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Layer2/Selector"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Layer2/Clickable/Selector"]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
 
@@ -185,13 +189,13 @@ tile_data = PoolIntArray( 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 8, 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Layer3/Water"]
 autoplay = "idle"
-anims/idle = SubResource( 4 )
+anims/idle = SubResource( 3 )
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Allies" type="Node2D" parent="Characters"]
+[node name="Allies" type="YSort" parent="Characters"]
 
-[node name="Enemies" type="Node2D" parent="Characters"]
+[node name="Enemies" type="YSort" parent="Characters"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -207,7 +211,7 @@ margin_left = -12.6811
 margin_top = 491.183
 margin_right = 947.319
 margin_bottom = 563.183
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_constants/line_spacing = 7
 text = "R to Restart
 M for Menu"
@@ -227,7 +231,7 @@ margin_left = 101.264
 margin_top = 20.0
 margin_right = 1061.27
 margin_bottom = 92.0001
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Green"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -338,7 +342,7 @@ margin_left = -91.146
 margin_top = 20.0
 margin_right = 868.854
 margin_bottom = 92.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Blue"
 align = 2
 __meta__ = {
@@ -454,7 +458,7 @@ damping = 0.1
 angle = 30.0
 angle_random = 0.1
 scale_amount = 0.07
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 6 )
 
 [node name="DustRight" type="CPUParticles2D" parent="Particles"]
 position = Vector2( 960, 270 )
@@ -473,7 +477,7 @@ damping = 0.1
 angle = 30.0
 angle_random = 0.1
 scale_amount = 0.07
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 6 )
 
 [node name="Audio" type="Node2D" parent="."]
 

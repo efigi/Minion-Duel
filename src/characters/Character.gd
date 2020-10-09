@@ -1,10 +1,12 @@
 class_name Character
 extends KinematicBody2D
 
-export (String, "left", "right") var team = "left"
+export (String, "left", "right") var team := "left"
+export (int) var attack_range := 1
+export (int) var move_range := 1
 
-var map_position := Vector2.ZERO
-var world_position := Vector2.ZERO
+
+var map_pos := Vector2.ZERO setget set_map_pos
 var is_selected := false
 
 onready var pivot = $Pivot
@@ -16,9 +18,6 @@ var _state = null
 var possible_states : Dictionary = {}
 onready var states_holder = $States
 onready var tween =$Addons/Tween
-
-func setup(mp):
-	map_position = mp
 	
 func _ready():
 	position += (Vector2.UP * 400)
@@ -73,8 +72,12 @@ func play_audio(audio : String):
 #		if event.button_index == BUTTON_LEFT and event.pressed:
 #			get_tree().call_group("selectors","change_visible")
 
-
+func set_map_pos(pos):
+	map_pos = pos
+	position = map_pos * Vector2 (128,88) * Vector2(0.5, 0.7) + Vector2(32, 0)
+	
 func _on_Tween_tween_completed(_object, key):
 	if key == ":position":
+		$Addons/AnimationPlayer.play("idle")
 		play_audio("land")
 		print("team ", team, " at ", global_position)
